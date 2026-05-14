@@ -1,0 +1,26 @@
+1-select Name,email,city, state,country from emp e join address a on e.id=a.emp_id;
+
+2-select Name,email,contact,city , area, state , country from emp e join address a on e.id=a.emp_id where gender='female';
+
+3-select Name,email,ssc,hsc,contact,city , area, state ,country from emp e join address a on e.id=a.emp_id join emp_qualification eq on e.id=eq.emp_id where gender='male';
+
+4-select Name,contact,ssc,hsc,graduation from emp e join emp_qualification eq on e.id=eq.emp_id join address a on e.id=a.emp_id where address_type='permanant';
+
+5-select  Name,email,gender,area,city,doj, salary, designation from emp e join address a on e.id=a.emp_id join employee_company ec on e.id=ec.emp_id;
+
+6-select  Name,email,designation,ssc,hsc,graduation,city , Department_Name from emp e join address a on e.id=a.emp_id join emp_qualification eq on e.id=eq.emp_id join employee_company ec on e.id=ec.emp_id join department d on e.id=d.id where designation like '%man%';
+
+7-select * from client c join project p on c.id=p.client_id;
+
+8-select *  from emp e join emp_project ep on e.id=ep.id join project p on ep.project_id=p.id join client c on p.client_id=c.id;
+
+9-select distinct emp_Name,Email,City,project_name,department_name , designation from emp e join address a on e.id=a.emp_id join employee_company ec on e.id=ec.emp_id join department d on ec.department_id=d.id join emp_project ep on e.id=ep.emp_id join project p on ep.project_id=p.id;
+
+10-select emp_name,ssc,hsc,graduation,city,area,state,landmark,country,address_type,designation,es.salary from emp e join emp_qualification eq on e.id=eq.emp_id join address a on e.id=a.emp_id join employee_company ec on e.id=ec.id left join employee_salary es on e.id=es.emp_id where es.salary is null;
+
+11-select emp_name,ssc,hsc,graduation,ec.salary,project_name from emp e join emp_qualification eq on e.id=eq.emp_id join employee_company ec on e.id=ec.emp_id join emp_project ep on e.id=ep.id join project p on ep.project_id=p.id where project_name ='Tata Namak';
+
+
+12-select * from emp e join address a on e.id=a.emp_id join emp_qualification eq on e.id=eq.emp_id join employee_company ec on e.id=ec.emp_id left join employee_salary es on e.id=es.emp_id where es.salary is null;
+
+13-select * from emp e join address a on e.id=a.emp_id join emp_qualification eq on e.id=eq.emp_id join employee_company ec on e.id=ec.emp_id join employee_salary es on e.id=es.emp_id join department d on ec.department_id=d.id join emp_project ep on e.id=ep.emp_id join project p on ep.project_id=p.id join client c on p.client_id=p.id where c.name='aman gupta';
